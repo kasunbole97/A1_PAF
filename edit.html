@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Product Management</title>
+  <title>Buyer Management</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,10 +37,10 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li ><a href="add.html" >Add Product</a></li>
-          <li><a href="view.html" >View Product</a></li>
-          <li><a href="edit.html" class="get-started-btn scrollto">Edit Product</a></li>
-          <!-- <li><a href="">Delete Product</a></li> -->
+          <li ><a href="add.html" >Buy Research</a></li>
+          <li><a href="view.html" >Payment</a></li>
+          <li><a href="edit.html" class="get-started-btn scrollto">Payment Details</a></li>
+          <!-- <li><a href="">Delete Payment</a></li> -->
           
 
         </ul>
@@ -56,10 +56,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Edit Product</h2>
+          <h2>Edit Payment</h2>
           <ol>
-            <li><a>Product</a></li>
-            <li>Edit Product</li>
+            <li><a>Payment</a></li>
+            <li>Payment Details</li>
           </ol>
         </div>
 
@@ -70,32 +70,32 @@
       <div class="container">
         <div class="row col-lg-12">
           <div class="form-group col-lg-4">
-            <label class="">Product Code</label>
-            <input type="text" id="product-code" class="form-control mb-3" placeholder="Product Code">
+            <label class="">Payment ID</label>
+            <input type="text" id="product-code" class="form-control mb-3" placeholder="Payment ID">
           </div>
           <div class="form-group col-lg-4">
-            <label class="">Product Name</label>
-            <input type="text" id="name" class="form-control mb-3" placeholder="Product Name">
+            <label class="">Product Type</label>
+            <input type="text" id="name" class="form-control mb-3" placeholder="Product Type">
           </div>
           <div class="form-group col-lg-4">
-            <label class="">Product Price</label>
-            <input type="text" id="product-price" class="form-control mb-3" placeholder="Product Price">
+            <label class="">Amount</label>
+            <input type="text" id="product-price" class="form-control mb-3" placeholder="Amount">
           </div>
 
           <div class="form-group col-lg-4">
-            <label >Product Description</label>
-            <textarea class="form-control" id="description" rows="3" placeholder="Product Description"></textarea>
+            <label >Buyer Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Buyer Description"></textarea>
           </div>
           <div class="col-lg-4 mt-4 pt-2 justify-content-center">
-            <div class="dis-error-message-insub d-none  border p-3 border-danger bg-danger text-center text-white" id="dis-error-message-insub">Please try again latter.</div>
-            <div class="sent-message-insub d-none  border p-3 border-success bg-success text-center text-white" id="sent-message-insub">Product Added success. Thank you!</div>
+            <div class="dis-error-message-insub d-none  border p-3 border-danger bg-danger text-center text-white" id="dis-error-message-insub">Please try again later.</div>
+            <div class="sent-message-insub d-none  border p-3 border-success bg-success text-center text-white" id="sent-message-insub">Payment Successful. Thank you!</div>
           </div>
           
                    
         </div>
         <div class="row col-12 justify-content-center">
           <div class="row form-group col-lg-3 mt-4">
-            <button class="btn btn-success form-control" onclick="submitProduct(); ">Update Product</button>
+            <button class="btn btn-success form-control" onclick="submitProduct(); ">Update Payment</button>
           </div>
         </div>
 
@@ -133,38 +133,38 @@
   <script>
 
 function submitProduct(){
-      if ($('#product-code').val() != '' && $('#name').val() != '' && $('#product-price').val() != '' && $('#description').val() != '' ) {
-        $('#product-code').removeClass('is-invalid');
-        $('#name').removeClass('is-invalid');
-        $('#product-price').removeClass('is-invalid');
-        $('#description').removeClass('is-invalid');
+      if ($('#payment-id').val() != '' && $('#product-type').val() != '' && $('#amount').val() != '' && $('#buyer-description').val() != '' ) {
+        $('#payment-id').removeClass('is-invalid');
+        $('#product-type').removeClass('is-invalid');
+        $('#amount').removeClass('is-invalid');
+        $('#buyer-description').removeClass('is-invalid');
 
-        let productCode = $('#product-code').val();
-        let name = $('#name').val();
-        let productPrice = $('#product-price').val();
-        let description = $('#description').val();
+        let paymentID = $('#payment-id').val();
+        let productType = $('#product-type').val();
+        let amount = $('#amount').val();
+        let buyerDescription = $('#buyer-description').val();
 
-        submitForm(productCode, name, productPrice, description);
+        submitForm(paymentID, productType, amount, buyerDescription);
       } else {
-        if ($('#product-code').val() == '') {
-        $('#product-code').addClass('is-invalid');
+        if ($('#payment-id').val() == '') {
+        $('#payment-id').addClass('is-invalid');
       }else{
-        $('#product-code').removeClass('is-invalid');
+        $('#payment-id').removeClass('is-invalid');
       }
-      if($('#name').val() == ''){
-        $('#name').addClass('is-invalid');
+      if($('#product-type').val() == ''){
+        $('#product-type').addClass('is-invalid');
       }else{
-        $('#name').removeClass('is-invalid');
+        $('#product-type').removeClass('is-invalid');
       }
-      if($('#product-price').val() == ''){
-        $('#product-price').addClass('is-invalid');
+      if($('#amount').val() == ''){
+        $('#amount').addClass('is-invalid');
       }else{
-        $('#product-price').removeClass('is-invalid');
+        $('#amount').removeClass('is-invalid');
       }
-      if($('#description').val() == ''){
-        $('#description').addClass('is-invalid');
+      if($('#buyer-description').val() == ''){
+        $('#buyer-description').addClass('is-invalid');
       }else{
-        $('#description').removeClass('is-invalid');
+        $('#buyer-description').removeClass('is-invalid');
       }
       
       
@@ -174,12 +174,12 @@ function submitProduct(){
       
     }
 
-    function submitForm(productCode, name, productPrice, description ){
+    function submitForm(paymentCode, productType, amount, buyerDescription ){
     let product={
-      "productCode":productCode,
-      "productName":name,
-      "productPrice":productPrice,
-      "productDesc":description
+      "paymentCode":paymentCode,
+      "productType":productType,
+      "amount":amount,
+      "buyerDesc":buyerDescription
 };
         
 
@@ -204,10 +204,10 @@ function submitProduct(){
         
     }
     function clearAllAndNotify() {
-      document.getElementById('product-code').value=" ";
-      document.getElementById('name').value=" ";
-      document.getElementById('product-price').value=" ";
-      document.getElementById('description').value=" ";
+      document.getElementById('payment-id').value=" ";
+      document.getElementById('product-type').value=" ";
+      document.getElementById('amount').value=" ";
+      document.getElementById('buyer-description').value=" ";
       
       var element = document.getElementById("sent-message-insub");
       element.classList.remove("d-none");

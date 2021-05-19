@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Product Management</title>
+  <title>Payment Management</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,10 +37,10 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li ><a href="add.html" >Add Product</a></li>
-          <li><a href="view.html" class="get-started-btn scrollto">View Product</a></li>
-          <li><a href="edit.html" >Edit Product</a></li>
-          <!-- <li><a href="">Delete Product</a></li> -->
+          <li ><a href="add.html" >Buy Research</a></li>
+          <li><a href="view.html" class="get-started-btn scrollto">View Payment</a></li>
+          <li><a href="edit.html" >Edit Payment</a></li>
+          <!-- <li><a href="">Delete Payment</a></li> -->
           
 
         </ul>
@@ -56,10 +56,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>View Product</h2>
+          <h2>View Payment</h2>
           <ol>
-            <li><a>Product</a></li>
-            <li>View Product</li>
+            <li><a>Payment</a></li>
+            <li>Payment Details</li>
           </ol>
         </div>
 
@@ -72,49 +72,49 @@
           <thead class="bg-primary text-white">
             <tr>
               <th scope="col"></th>
-              <th scope="col">Product Code</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Product Price</th>
-              <th scope="col">Product Description</th>
+              <th scope="col">Payment ID</th>
+              <th scope="col">Product Type</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Buyer Description</th>
               <th scope="col"></th>
-              <!-- "productCode":productCode,
-      "name":name,
-      "productPrice":productPrice,
-      "description":description -->
+              <!-- "productID":productID,
+      "productType":prodcutType,
+      "amount":amount,
+      "buyerDescription":buyerDescription -->
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>PN01</td>
-              <td>product01</td>
-              <td>100 Rs</td>
-              <td>Small</td>
-              <td><button class="btn btn-danger form-control" >Delete Product</button></td>
+              <td>T01</td>
+              <td>Hydrolic</td>
+              <td>100$</td>
+              <td>B001</td>
+              <td><button class="btn btn-danger form-control" >Delete Payment</button></td>
             </tr>
             <tr>
               <th scope="row">2</th>
-              <td>PN02</td>
-              <td>product02</td>
-              <td>150 Rs</td>
-              <td>Big</td>
-              <td><button class="btn btn-danger form-control" >Delete Product</button></td>
+              <td>T02</td>
+              <td>Chemistry</td>
+              <td>250$</td>
+              <td>B002</td>
+              <td><button class="btn btn-danger form-control" >Delete Payment</button></td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td>PN03</td>
-              <td>product03</td>
-              <td>150 Rs</td>
-              <td>Big</td>
-              <td><button class="btn btn-danger form-control" >Delete Product</button></td>
+              <td>T03</td>
+              <td>Physics</td>
+              <td>200$</td>
+              <td>B003</td>
+              <td><button class="btn btn-danger form-control" >Delete Payment</button></td>
             </tr>
             <tr>
               <th scope="row">4</th>
-              <td>PN04</td>
-              <td>product04</td>
-              <td>150 Rs</td>
-              <td>Big</td>
-              <td><button class="btn btn-danger form-control" >Delete Product</button></td>
+              <td>T04</td>
+              <td>Thermo</td>
+              <td>150$</td>
+              <td>B004</td>
+              <td><button class="btn btn-danger form-control" >Delete Payment</button></td>
             </tr>
             
             
@@ -155,38 +155,38 @@
   <script>
 
 function submitProduct(){
-      if ($('#product-code').val() != '' && $('#name').val() != '' && $('#product-price').val() != '' && $('#description').val() != '' ) {
-        $('#product-code').removeClass('is-invalid');
-        $('#name').removeClass('is-invalid');
-        $('#product-price').removeClass('is-invalid');
-        $('#description').removeClass('is-invalid');
+      if ($('#payment-id').val() != '' && $('#product-type').val() != '' && $('#amount').val() != '' && $('#buyer-description').val() != '' ) {
+        $('#payment-id').removeClass('is-invalid');
+        $('#product-type').removeClass('is-invalid');
+        $('#amount').removeClass('is-invalid');
+        $('#buyer-description').removeClass('is-invalid');
 
-        let productCode = $('#product-code').val();
-        let name = $('#name').val();
-        let productPrice = $('#product-price').val();
-        let description = $('#description').val();
+        let paymentID = $('#payment-id').val();
+        let productType = $('#product-type').val();
+        let amount = $('#amount').val();
+        let buyerDescription = $('#buyer-description').val();
 
-        submitForm(productCode, name, productPrice, description);
+        submitForm(paymentID, productType, amount, buyerDescription);
       } else {
-        if ($('#product-code').val() == '') {
-        $('#product-code').addClass('is-invalid');
+        if ($('#payment-id').val() == '') {
+        $('#payment-id').addClass('is-invalid');
       }else{
-        $('#product-code').removeClass('is-invalid');
+        $('#payment-id').removeClass('is-invalid');
       }
-      if($('#name').val() == ''){
-        $('#name').addClass('is-invalid');
+      if($('#product-type').val() == ''){
+        $('#product-type').addClass('is-invalid');
       }else{
-        $('#name').removeClass('is-invalid');
+        $('#product-type').removeClass('is-invalid');
       }
-      if($('#product-price').val() == ''){
-        $('#product-price').addClass('is-invalid');
+      if($('#amount').val() == ''){
+        $('#amount').addClass('is-invalid');
       }else{
-        $('#product-price').removeClass('is-invalid');
+        $('#amount').removeClass('is-invalid');
       }
-      if($('#description').val() == ''){
-        $('#description').addClass('is-invalid');
+      if($('#buyer-description').val() == ''){
+        $('#buyer-description').addClass('is-invalid');
       }else{
-        $('#description').removeClass('is-invalid');
+        $('#buyer-description').removeClass('is-invalid');
       }
       
       
@@ -196,12 +196,12 @@ function submitProduct(){
       
     }
 
-    function submitForm(productCode, name, productPrice, description ){
+    function submitForm(paymentID, productType, amount, buyerDescription ){
     let signup={
-      "productCode":productCode,
-      "name":name,
-      "productPrice":productPrice,
-      "description":description
+      "paymentID":paymentID,
+      "productType":productType,
+      "amount":amount,
+      "buyerDescription":buyerDescription
 };
 
 console.log(signup);
@@ -229,10 +229,10 @@ console.log(signup);
         
     }
     function clearAllAndNotify() {
-      document.getElementById('product-code').value=" ";
-      document.getElementById('name').value=" ";
-      document.getElementById('product-price').value=" ";
-      document.getElementById('description').value=" ";
+      document.getElementById('payment-id').value=" ";
+      document.getElementById('product-type').value=" ";
+      document.getElementById('amount').value=" ";
+      document.getElementById('buyer-description').value=" ";
       
       var element = document.getElementById("sent-message-insub");
       element.classList.remove("d-none");
